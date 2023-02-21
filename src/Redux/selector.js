@@ -1,10 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const getContacts = state => {
+export const getContacts = (state) => {
   return state.contacts;
 };
 
-export const getFilter = state => {
+export const getFilter = (state) => {
   return state.filter;
 };
 

@@ -20,7 +20,7 @@ const persistConfig = {
 }
 
 const rootReduser = combineReducers({
-  contact: contactsReducer,
+  contacts: contactsReducer,
   filter: filterReducer,
 })
 

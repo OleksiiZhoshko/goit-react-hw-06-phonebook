@@ -8,17 +8,19 @@ import { getContacts } from 'Redux/selector';
 const PhoneBook = () => {
   const dispatch = useDispatch();
 
-  const allContacts = useSelector(getContacts());
+  const contactsValue = useSelector(getContacts);
 
   const hendleCenge = event => {
     event.preventDefault();
     const { name, number } = event.target.elements;
-    const contact = { id: nanoid(6), name: name.value, number: number.value };
-    if (allContacts.some(item => item.name === contact.name)) {
-      alert(`Contact ${contact.name} already exist`);
+    const contacts = { id: nanoid(6), name: name.value, number: number.value };
+    if (contactsValue.some(contact => contact.name === name.value)) {
+      alert(`Sorry, ${name.value} is already in contacts.`);
+      name.value = '';
+      number.value = '';
       return;
     }
-    dispatch(addContacts(contact));
+    dispatch(addContacts(contacts));
     name.value = '';
     number.value = '';
   };
